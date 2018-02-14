@@ -4,4 +4,10 @@ Rails.application.routes.draw do
   resources :photos
   root "photos#index"
   resources :users
+
+  namespace :api, defaults: {format: :jason} do
+    namespace :v1 do
+      resources :photos, only: [:index, :create, :show, :update, :destroy]
+    end
+  end
 end
