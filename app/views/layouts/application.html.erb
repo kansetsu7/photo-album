@@ -48,6 +48,9 @@
       <% elsif flash[:alert] %>
           <div class="alert alert-danger" role="alert"><%= alert %></div>
       <% end %>
+      <% if current_user %>
+        <p class="pull-right">你的 API Token：<code><%= current_user.authentication_token  %></code></p>
+      <% end %>
       <%= yield %>
     </div>
   </body>
